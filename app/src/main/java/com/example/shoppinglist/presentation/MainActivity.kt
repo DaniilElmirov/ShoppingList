@@ -9,6 +9,8 @@ import com.example.shoppinglist.R
 class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
 
+    private var count = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,7 +18,11 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
         mainViewModel.shopList.observe(this) {
             Log.d("MAIN", it.toString())
+            if (count == 0){
+                count++
+                val item = it[0]
+                mainViewModel.deleteShopItem(item)
+            }
         }
-        mainViewModel.getShopList()
     }
 }
