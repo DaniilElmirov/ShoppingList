@@ -1,5 +1,7 @@
 package com.example.shoppinglist.domain
 
+import kotlinx.coroutines.flow.StateFlow
+
 interface ShopListRepository {
     fun addShopItem(shopItem: ShopItem)
 
