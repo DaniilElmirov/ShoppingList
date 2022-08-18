@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             if (count == 0){
                 count++
                 val item = it[0]
-                mainViewModel.deleteShopItem(item)
+                mainViewModel.changeEnableState(item)
             }
         }
     }
