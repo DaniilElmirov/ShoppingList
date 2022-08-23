@@ -3,4 +3,7 @@
     <string name="hint_item_name">Name:</string>
     <string name="hint_item_count">Count:</string>
     <string name="text_b_save">Save</string>
+    <string name="cd_add_new_item">Add new item</string>
+    <string name="error_input_count">Invalid count</string>
+    <string name="error_input_name">Invalid name</string>
 </resources>
