@@ -18,7 +18,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class ShopItemFragment(
     private val screenMode: String = MODE_UNKNOWN,
-    private val shopItemId: Int = ShopItem.UNDEFINED_ID,
+    private val shopItemId: Int = ShopItem.UNDEFINED_ID, //bad solution
 ) : Fragment() {
     private lateinit var shopItemViewModel: ShopItemViewModel
 
