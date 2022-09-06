@@ -1,7 +1,8 @@
 package com.example.shoppinglist.data
 
 import android.app.Application
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.example.shoppinglist.data.database.AppDatabase
 import com.example.shoppinglist.domain.ShopItem
 import com.example.shoppinglist.domain.ShopListRepository
@@ -30,9 +31,9 @@ class ShopListRepositoryImpl(
         return mapper.mapDbModelToEntity(dbModel)
     }
 
-    override fun getShopList() = MediatorLiveData<List<ShopItem>>().apply {
-        addSource(shopListDao.getShopList()) {
-            value = mapper.mapListDbModelToListEntity(it)
-        }
+    override fun getShopList(): LiveData<List<ShopItem>> = Transformations.map(
+        shopListDao.getShopList()
+    ) {
+        mapper.mapListDbModelToListEntity(it)
     }
 }
